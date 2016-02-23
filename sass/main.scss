@@ -2,7 +2,64 @@
 // See Readme for a list of supported ones
 
 body {
-  background: #e2ebf3;
+  background: #F5F4F1;
 }
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: left;
+  display: inline-block;
+
+}
+
+.replay-bar {
+  vertical-align: top;
+  margin-top: 100px;
+  width: 100%;
+  height: 250px;
+  border: 1px solid #EDECE9;
+  background: #FAF9F7;
+  overflow: scroll;
+  // text-align: center;
+}
+
+.asset-list {
+  vertical-align: top;
+  display: inline-block;
+  width: 8%;
+  // border: 1px solid black;
+}
+
+.asset {
+  padding-left: 10px;
+  li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EDECE9;
+    color: #788081;
+    font-weight: 300;
+  }
+}
+
+.time-bar {
+  display: inline-block;
+  width: 90%;
+  margin-left: -8px;
+  // border: 1px solid black;
+}
+
+.time-slot {
+  div {
+    padding-left: 10px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EDECE9;
+    width: 100%;
+    color: #788081;
+  }
+}
+
 
 

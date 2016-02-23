@@ -19,7 +19,7 @@ var _moment2 = _interopRequireDefault(_moment);
 function Asset(id, location, make) {
   this.id = id;
   this.location = location;
-  this.make = make;
+  this.make = make + ' ' + id;
   this.time = time + ' hrs';
 }
 
@@ -35,8 +35,8 @@ var assets = [];
 var intervals = [];
 
 // Create 20 random Assets
-for (var i = 1; i < 21; i++) {
-  var id = i;
+for (var i = 1; i < 10; i++) {
+  var id = Math.floor(Math.random() * 100);
   var locations = ["Atlanta", "Decatur", "Macon", "Chicago", "New York", "Seatle"];
   var location = locations[Math.floor(Math.random() * locations.length)];
   var makes = ["Honda", "Chevy", "Ford", "BMW", "Mercedes", "Porsche"];
@@ -47,9 +47,14 @@ for (var i = 1; i < 21; i++) {
   assets.push(asset);
 }
 
+// Append assets to DOM
 _jquery2['default'].each(assets, function (key, val) {
-  var $li = (0, _jquery2['default'])("<li>" + val.id + val.make + "</li>");
-  (0, _jquery2['default'])('#asset-list').append($li);
+
+  var $li = (0, _jquery2['default'])("<li>" + val.make + "</li>");
+  (0, _jquery2['default'])('#asset-list').append($li).addClass('asset');
+
+  var $assetTime = (0, _jquery2['default'])("<div></div>");
+  (0, _jquery2['default'])('#time-bar').append($assetTime).addClass('time-slot');
 });
 
 // for (var i = 0; i < 1; i++) {

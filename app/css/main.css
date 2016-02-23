@@ -1,4 +1,47 @@
 body {
-  background: #e2ebf3; }
+  background: #F5F4F1; }
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: left;
+  display: inline-block; }
+
+.replay-bar {
+  vertical-align: top;
+  margin-top: 100px;
+  width: 100%;
+  height: 250px;
+  border: 1px solid #EDECE9;
+  background: #FAF9F7;
+  overflow: scroll; }
+
+.asset-list {
+  vertical-align: top;
+  display: inline-block;
+  width: 8%; }
+
+.asset {
+  padding-left: 10px; }
+  .asset li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EDECE9;
+    color: #788081;
+    font-weight: 300; }
+
+.time-bar {
+  display: inline-block;
+  width: 90%;
+  margin-left: -8px; }
+
+.time-slot div {
+  padding-left: 10px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #EDECE9;
+  width: 100%;
+  color: #788081; }
 
 /*# sourceMappingURL=main.css.map */
