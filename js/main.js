@@ -8,7 +8,7 @@ function Asset(id, location, make, totalTime) {
   this.id = id;
   this.location = location;
   this.make = make + ' ' + id;
-  this.time = time + ' hrs';
+  // this.time = time + ' hrs';
   this.totalTime = totalTime;
 }
 
@@ -21,57 +21,107 @@ var assets = [];
 
 var intervals = [];
 
-// Create time slots for all intervals
-for (var i = 0; i < 26; i++) {
-  var time = i;
+// CONTROLS
 
-  var interval = new Interval(time);
+var assetNum = document.querySelector('#assetNum');
 
-  intervals.push(interval);
-}
+assetNum.addEventListener('change', function() {
+  var num = 0;
+  for (var i = 0; i < assetNum.options.length; i++) {
+    var option = assetNum.options[i];
+    if (option.selected) {
+      num += Number(option.value);
+    }
+  }
 
-// Create 20 random Assets
-for (var i = 0; i < 10; i++) {
-  var id = Math.floor(Math.random() * 100);
-  var locations = ["Atlanta", "Decatur", "Macon", "Chicago", "New York", "Seatle"];
-  var location = locations[Math.floor(Math.random() * locations.length)];
-  var makes = ["Honda", "Chevy", "Ford", "BMW", "Mercedes", "Porsche"];
-  var make = makes[Math.floor(Math.random() * makes.length)];
-  var time = Math.floor(Math.random() * 5 + 1);
+  // Delete Existing Assets and Intervals
+  var deleteAssets = function() {
 
-  // Total Time determined by length of interval
-  var totalTime = intervals.length;
+    assets = [];
+    intervals = [];
+  };
 
-  var asset = new Asset(id, location, make, totalTime);
+  deleteAssets();
 
-  assets.push(asset);
+  // document.location.reload(true);
 
-}
+  // Create Assets
 
-console.log(assets);
+  var createAssets = function() {
+    for (var i = 0; i < num; i++) {
+      var id = Math.floor(Math.random() * 100);
+      var locations = ["Atlanta", "Decatur", "Macon", "Chicago", "New York", "Seatle"];
+      var location = locations[Math.floor(Math.random() * locations.length)];
+      var makes = ["Honda", "Chevy", "Ford", "BMW", "Mercedes", "Porsche"];
+      var make = makes[Math.floor(Math.random() * makes.length)];
+      var time = Math.floor(Math.random() * 5 + 1);
 
-// Append assets to DOM
+      // Total Time determined by length of interval
+      var totalTime = intervals.length;
 
-$.each(assets, function(key, val) {
-  var $li = $("<li>"+val.make+"</li>");
-  $('#asset-list').append($li).addClass('asset');
+      var asset = new Asset(id, location, make, totalTime);
 
-  var $row = $('<div class="slot-row"></div>');
-  $('#time-bar').append($row);
+      assets.push(asset);
+    }
+  };
+
+  createAssets();
+
+  // Create time slots for all intervals
+  var createIntervals = function() {
+    for (var i = 0; i < 21; i++) {
+      var time = i;
+
+      var interval = new Interval(time);
+
+      intervals.push(interval);
+    }
+  };
+
+  createIntervals();
+
+  // Append assets to DOM
+  $.each(assets, function(key, val) {
+    var $li = $("<li>"+val.make+"</li>");
+    $('#asset-list').append($li).addClass('asset');
+
+    var $row = $('<div class="slot-row"></div>');
+    $('#time-bar').append($row);
+  });
+
+  for (var s = 0; s < intervals.length; s++) {
+    var $slot = $('<div class="slot"></div>');
+    $('.slot-row').append($slot);
+  }
+
+  // Append time intervals to DOM
+  $.each(intervals, function(key, val) {
+    var $div = $("<div>"+val.time+"</div>");
+    $('#interval').append($div);
+  });
+
+  console.log(assets);
 });
 
-for (var i = 0; i < intervals.length; i++) {
-  var $slot = $('<div class="slot"></div>');
-  $('.slot-row').append($slot);
+// // Append assets to DOM
+// $.each(assets, function(key, val) {
+//   var $li = $("<li>"+val.make+"</li>");
+//   $('#asset-list').append($li).addClass('asset');
 
-  console.log($slot);
-}
+//   var $row = $('<div class="slot-row"></div>');
+//   $('#time-bar').append($row);
+// });
 
-// Append time intervals to DOM
-$.each(intervals, function(key, val) {
-  var $div = $("<div>"+val.time+"</div>");
-  $('#interval').append($div);
-});
+// for (var i = 0; i < intervals.length; i++) {
+//   var $slot = $('<div class="slot"></div>');
+//   $('.slot-row').append($slot);
+// }
+
+// // Append time intervals to DOM
+// $.each(intervals, function(key, val) {
+//   var $div = $("<div>"+val.time+"</div>");
+//   $('#interval').append($div);
+// });
 
 // Synch scrolling
 $('.interval-bar').on('scroll', function () {
@@ -80,3 +130,7 @@ $('.interval-bar').on('scroll', function () {
 $('.replay-bar').on('scroll', function () {
   $('.interval-bar').scrollLeft($(this).scrollLeft());
 });
+
+
+
+

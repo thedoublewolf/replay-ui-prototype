@@ -8,6 +8,15 @@ ul {
   text-align: left;
   display: inline-block; }
 
+.fa-search-plus:hover {
+  cursor: pointer; }
+
+.fa-search-minus:hover {
+  cursor: pointer; }
+
+.fa-play-circle:hover {
+  cursor: pointer; }
+
 .background {
   margin: auto;
   background: #FAF9F7;
@@ -69,8 +78,8 @@ ul {
         display: inline-block;
         width: 100px;
         height: 40px;
-        border-left: 1px solid #EDECE9;
-        border-right: 1px solid #EDECE9;
+        border-left: 1px dotted #EDECE9;
+        border-right: 1px dotted white;
         border-bottom: 1px solid #EDECE9; }
 
 .time-slot div {
@@ -100,5 +109,11 @@ ul {
     .interval-bar #interval div {
       display: inline-block;
       width: 100px; }
+
+.controls {
+  width: 1100px;
+  border: 1px solid #EDECE9;
+  margin: 10px auto;
+  height: 80px; }
 
 /*# sourceMappingURL=main.css.map */
