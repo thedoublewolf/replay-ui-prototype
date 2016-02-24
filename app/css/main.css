@@ -1,5 +1,5 @@
 body {
-  background: #419F60; }
+  background: #DADCDE; }
 
 ul {
   list-style: none;
@@ -62,13 +62,16 @@ ul {
   overflow: scroll; }
   .time-bar #time-bar {
     display: inline-block; }
-    .time-bar #time-bar .slot-horz {
-      display: inline-block;
-      width: 100px;
-      height: 40px;
-      border-left: 1px solid #EDECE9;
-      border-right: 1px solid #EDECE9;
-      border-bottom: 1px solid #EDECE9; }
+    .time-bar #time-bar .slot-row {
+      display: block;
+      height: 40px; }
+      .time-bar #time-bar .slot-row .slot {
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        border-left: 1px solid #EDECE9;
+        border-right: 1px solid #EDECE9;
+        border-bottom: 1px solid #EDECE9; }
 
 .time-slot div {
   padding-left: 10px;

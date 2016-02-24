@@ -31,7 +31,7 @@ for (var i = 0; i < 26; i++) {
 }
 
 // Create 20 random Assets
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 10; i++) {
   var id = Math.floor(Math.random() * 100);
   var locations = ["Atlanta", "Decatur", "Macon", "Chicago", "New York", "Seatle"];
   var location = locations[Math.floor(Math.random() * locations.length)];
@@ -45,6 +45,7 @@ for (var i = 0; i < 5; i++) {
   var asset = new Asset(id, location, make, totalTime);
 
   assets.push(asset);
+
 }
 
 console.log(assets);
@@ -55,13 +56,15 @@ $.each(assets, function(key, val) {
   var $li = $("<li>"+val.make+"</li>");
   $('#asset-list').append($li).addClass('asset');
 
-  // var $slotVert = $('<div class="slot-vert"></div>');
-  // $('#time-bar').append($slotVert);
+  var $row = $('<div class="slot-row"></div>');
+  $('#time-bar').append($row);
 });
 
 for (var i = 0; i < intervals.length; i++) {
-  var $slotHorz = $('<div class="slot-horz"></div>');
-  $('#time-bar').append($slotHorz);
+  var $slot = $('<div class="slot"></div>');
+  $('.slot-row').append($slot);
+
+  console.log($slot);
 }
 
 // Append time intervals to DOM
