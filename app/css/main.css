@@ -1,5 +1,5 @@
 body {
-  background: #788081; }
+  background: #419F60; }
 
 ul {
   list-style: none;
@@ -50,9 +50,9 @@ ul {
   padding-left: 10px; }
   .asset li {
     padding-top: 10px;
-    padding-bottom: 10px;
+    height: 40px;
     border-bottom: 1px solid #EDECE9;
-    width: 1050px;
+    width: 115px;
     color: #788081;
     font-weight: 300; }
 
@@ -62,11 +62,13 @@ ul {
   overflow: scroll; }
   .time-bar #time-bar {
     display: inline-block; }
-    .time-bar #time-bar div {
+    .time-bar #time-bar .slot-horz {
       display: inline-block;
       width: 100px;
-      height: 250px;
-      border: 1px solid red; }
+      height: 40px;
+      border-left: 1px solid #EDECE9;
+      border-right: 1px solid #EDECE9;
+      border-bottom: 1px solid #EDECE9; }
 
 .time-slot div {
   padding-left: 10px;

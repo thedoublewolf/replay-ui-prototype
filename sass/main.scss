@@ -2,7 +2,7 @@
 // See Readme for a list of supported ones
 
 body {
-  background: #788081;
+  background: #419F60;
 }
 
 ul {
@@ -66,9 +66,9 @@ ul {
   padding-left: 10px;
   li {
     padding-top: 10px;
-    padding-bottom: 10px;
+    height: 40px;
     border-bottom: 1px solid #EDECE9;
-    width: 1050px;
+    width: 115px;
     color: #788081;
     font-weight: 300;
   }
@@ -80,11 +80,13 @@ ul {
   overflow: scroll;
   #time-bar {
     display: inline-block;
-    div {
+    .slot-horz {
       display: inline-block;
       width: 100px;
-      height: 250px;
-      border: 1px solid red;
+      height: 40px;
+      border-left: 1px solid #EDECE9;
+      border-right: 1px solid #EDECE9;
+      border-bottom: 1px solid #EDECE9;
     }
   }
 }

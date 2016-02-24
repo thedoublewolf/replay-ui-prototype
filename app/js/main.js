@@ -16,11 +16,12 @@ var _moment = require('moment');
 var _moment2 = _interopRequireDefault(_moment);
 
 // Asset Constructor
-function Asset(id, location, make) {
+function Asset(id, location, make, totalTime) {
   this.id = id;
   this.location = location;
   this.make = make + ' ' + id;
   this.time = time + ' hrs';
+  this.totalTime = totalTime;
 }
 
 // Interval Constructor
@@ -32,86 +33,62 @@ var assets = [];
 
 var intervals = [];
 
+// Create time slots for all intervals
+for (var i = 0; i < 26; i++) {
+  var time = i;
+
+  var interval = new Interval(time);
+
+  intervals.push(interval);
+}
+
 // Create 20 random Assets
-for (var i = 0; i < 11; i++) {
+for (var i = 0; i < 5; i++) {
   var id = Math.floor(Math.random() * 100);
   var locations = ["Atlanta", "Decatur", "Macon", "Chicago", "New York", "Seatle"];
   var location = locations[Math.floor(Math.random() * locations.length)];
   var makes = ["Honda", "Chevy", "Ford", "BMW", "Mercedes", "Porsche"];
   var make = makes[Math.floor(Math.random() * makes.length)];
   var time = Math.floor(Math.random() * 5 + 1);
-  var asset = new Asset(id, location, make);
+
+  // Total Time determined by length of interval
+  var totalTime = intervals.length;
+
+  var asset = new Asset(id, location, make, totalTime);
 
   assets.push(asset);
 }
 
-// Create time slots
-for (var i = 0; i < 26; i++) {
-  var time = i;
-  var interval = new Interval(time);
-
-  intervals.push(interval);
-}
+console.log(assets);
 
 // Append assets to DOM
-_jquery2['default'].each(assets, function (key, val) {
 
+_jquery2['default'].each(assets, function (key, val) {
   var $li = (0, _jquery2['default'])("<li>" + val.make + "</li>");
   (0, _jquery2['default'])('#asset-list').append($li).addClass('asset');
 
-  // var $assetTime = $("<div></div>");
-  // $('#time-bar').append($assetTime).addClass('time-slot');
+  // var $slotVert = $('<div class="slot-vert"></div>');
+  // $('#time-bar').append($slotVert);
 });
 
-_jquery2['default'].each(intervals, function (key, val) {
+for (var i = 0; i < intervals.length; i++) {
+  var $slotHorz = (0, _jquery2['default'])('<div class="slot-horz"></div>');
+  (0, _jquery2['default'])('#time-bar').append($slotHorz);
+}
 
+// Append time intervals to DOM
+_jquery2['default'].each(intervals, function (key, val) {
   var $div = (0, _jquery2['default'])("<div>" + val.time + "</div>");
   (0, _jquery2['default'])('#interval').append($div);
-
-  var $col = (0, _jquery2['default'])("<div></div>");
-  (0, _jquery2['default'])('#time-bar').append($col);
 });
 
+// Synch scrolling
 (0, _jquery2['default'])('.interval-bar').on('scroll', function () {
   (0, _jquery2['default'])('.replay-bar').scrollLeft((0, _jquery2['default'])(this).scrollLeft());
 });
 (0, _jquery2['default'])('.replay-bar').on('scroll', function () {
   (0, _jquery2['default'])('.interval-bar').scrollLeft((0, _jquery2['default'])(this).scrollLeft());
 });
-
-// for (var i = 0; i < 1; i++) {
-//   var intervalOne = new Interval(start, finish, randomAsset);
-//   var start = "12:00am";
-//   var finish = "5:59am";
-//   var randomAsset = assets[Math.floor(Math.random()*assets.length)];
-//   intervals.push(intervalOne);
-// }
-
-// for (var i = 0; i < 1; i++) {
-//   var intervalTwo = new Interval(start, finish, randomAsset);
-//   var start = "6:00am";
-//   var finish = "11:59pm";
-//   var randomAsset = assets[Math.floor(Math.random()*assets.length)];
-//   intervals.push(intervalTwo);
-// }
-
-// for (var i = 0; i < 1; i++) {
-//   var intervalThree = new Interval(start, finish, randomAsset);
-//   var start = "12:00pm";
-//   var finish = "5:59pm";
-//   var randomAsset = assets[Math.floor(Math.random()*assets.length)];
-//   intervals.push(intervalThree);
-// }
-
-// for (var i = 0; i < 1; i++) {
-//   var intervalFour = new Interval(start, finish, randomAsset);
-//   var start = "6:00pm";
-//   var finish = "11:59pm";
-//   var randomAsset = assets[Math.floor(Math.random()*assets.length)];
-//   intervals.push(intervalFour);
-// }
-
-// console.log(intervals);
 
 },{"jquery":2,"moment":3,"underscore":4}],2:[function(require,module,exports){
 /*!
