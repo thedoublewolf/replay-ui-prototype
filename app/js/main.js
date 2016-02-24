@@ -46,7 +46,7 @@ for (var i = 0; i < 11; i++) {
 }
 
 // Create time slots
-for (var i = 0; i < 25; i++) {
+for (var i = 0; i < 26; i++) {
   var time = i;
   var interval = new Interval(time);
 
@@ -67,6 +67,16 @@ _jquery2['default'].each(intervals, function (key, val) {
 
   var $div = (0, _jquery2['default'])("<div>" + val.time + "</div>");
   (0, _jquery2['default'])('#interval').append($div);
+
+  var $col = (0, _jquery2['default'])("<div></div>");
+  (0, _jquery2['default'])('#time-bar').append($col);
+});
+
+(0, _jquery2['default'])('.interval-bar').on('scroll', function () {
+  (0, _jquery2['default'])('.replay-bar').scrollLeft((0, _jquery2['default'])(this).scrollLeft());
+});
+(0, _jquery2['default'])('.replay-bar').on('scroll', function () {
+  (0, _jquery2['default'])('.interval-bar').scrollLeft((0, _jquery2['default'])(this).scrollLeft());
 });
 
 // for (var i = 0; i < 1; i++) {
