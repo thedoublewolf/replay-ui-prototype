@@ -1,5 +1,5 @@
 body {
-  background: #F5F4F1; }
+  background: #788081; }
 
 ul {
   list-style: none;
@@ -10,17 +10,31 @@ ul {
 
 .replay-bar {
   vertical-align: top;
-  margin-top: 100px;
-  width: 100%;
-  height: 250px;
-  border: 1px solid #EDECE9;
+  width: 1100px;
+  max-height: 200px;
+  border-left: 1px solid #EDECE9;
+  border-right: 1px solid #EDECE9;
   background: #FAF9F7;
   overflow: scroll; }
+
+.info-bar {
+  margin-top: 100px;
+  width: 1100px;
+  border: 1px solid #EDECE9;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #FAF9F7;
+  color: #788081;
+  font-size: 1em; }
+  .info-bar div {
+    display: inline-block;
+    margin-right: 30px; }
 
 .asset-list {
   vertical-align: top;
   display: inline-block;
-  width: 8%; }
+  width: 120px; }
 
 .asset {
   padding-left: 10px; }
@@ -28,20 +42,36 @@ ul {
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #EDECE9;
+    width: 1050px;
     color: #788081;
     font-weight: 300; }
 
 .time-bar {
-  display: inline-block;
-  width: 90%;
-  margin-left: -8px; }
+  display: inline-block; }
 
 .time-slot div {
   padding-left: 10px;
   padding-top: 30px;
-  padding-bottom: 10px;
   border-bottom: 1px solid #EDECE9;
-  width: 100%;
   color: #788081; }
+
+.interval-bar {
+  width: 1100px;
+  border: 1px solid #EDECE9;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background: #FAF9F7;
+  color: #788081;
+  font-size: 1em;
+  white-space: nowrap;
+  overflow: scroll; }
+  .interval-bar .spacer {
+    display: inline-block;
+    width: 120px; }
+  .interval-bar #interval {
+    display: inline-block; }
+    .interval-bar #interval div {
+      display: inline-block;
+      width: 100px; }
 
 /*# sourceMappingURL=main.css.map */

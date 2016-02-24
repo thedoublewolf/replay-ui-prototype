@@ -12,10 +12,8 @@ function Asset(id, location, make) {
 }
 
 // Interval Constructor
-function Interval(start, finish, randomAsset) {
-  this.start = start;
-  this.finish = finish;
-  this.randomAsset = randomAsset;
+function Interval(time) {
+  this.time = time;
 }
 
 var assets = [];
@@ -23,7 +21,7 @@ var assets = [];
 var intervals = [];
 
 // Create 20 random Assets
-for (var i = 1; i < 10; i++) {
+for (var i = 0; i < 11; i++) {
   var id = Math.floor(Math.random() * 100);
   var locations = ["Atlanta", "Decatur", "Macon", "Chicago", "New York", "Seatle"];
   var location = locations[Math.floor(Math.random() * locations.length)];
@@ -35,14 +33,29 @@ for (var i = 1; i < 10; i++) {
   assets.push(asset);
 }
 
+// Create time slots
+for (var i = 0; i < 25; i++) {
+  var time = i;
+  var interval = new Interval(time);
+
+  intervals.push(interval);
+}
+
 // Append assets to DOM
 $.each(assets, function(key, val) {
 
   var $li = $("<li>"+val.make+"</li>");
   $('#asset-list').append($li).addClass('asset');
 
-  var $assetTime = $("<div></div>");
-  $('#time-bar').append($assetTime).addClass('time-slot');
+  // var $assetTime = $("<div></div>");
+  // $('#time-bar').append($assetTime).addClass('time-slot');
+});
+
+$.each(intervals, function(key, val) {
+
+  var $div = $("<div>"+val.time+"</div>");
+  $('#interval').append($div);
+
 });
 
 // for (var i = 0; i < 1; i++) {
