@@ -12,25 +12,20 @@ ul {
   text-align: left;
   display: inline-block;
 }
-
 .fa-search-plus:hover {
   cursor: pointer;
 }
-
 .fa-search-minus:hover {
   cursor: pointer;
 }
-
 .fa-play-circle:hover {
   cursor: pointer;
 }
-
 .background {
   margin: auto;
   background: #FAF9F7;
   width: 1100px;
 }
-
 .replay-bar {
   display: inline-block;
   vertical-align: top;
@@ -49,7 +44,6 @@ ul {
 .replay-bar::-webkit-scrollbar { 
     display: none; 
 }
-
 .info-bar {
   margin-top: 100px;
   width: 1100px;
@@ -60,63 +54,57 @@ ul {
   background: #FAF9F7;
   color: #788081;
   font-size: 1em;
-  div {
-    display: inline-block;
-    margin-right: 30px;
-  }
 }
-
+.info-bar div {
+  display: inline-block;
+  margin-right: 30px;
+}
 .asset-list {
   vertical-align: top;
   display: inline-block;
   width: 120px;
   // border: 1px solid black;
 }
-
 .asset {
   display: inline-block;
   padding-left: 10px;
-  li {
-    padding-top: 10px;
-    height: 40px;
-    border-bottom: 1px solid #EDECE9;
-    width: 115px;
-    color: #788081;
-    font-weight: 300;
-  }
+}
+.asset li {
+  padding-top: 10px;
+  height: 40px;
+  border-bottom: 1px solid #EDECE9;
+  width: 115px;
+  color: #788081;
+  font-weight: 300;
 }
 
 .time-bar {
   display: inline-block;
   white-space: nowrap;
   overflow: scroll;
-  #time-bar {
-    display: inline-block;
-    .slot-row {
-      display: block;
-      height: 40px;
-      .slot {
-        display: inline-block;
-        width: 100px;
-        height: 40px;
-        border-left: 1px dotted #EDECE9;
-        border-right: 1px dotted lighten(#EDECE9, 20%);
-        border-bottom: 1px solid #EDECE9;
-      }
-    }
-  }
 }
-
-.time-slot {
-  div {
-    padding-left: 10px;
-    padding-top: 30px;
-    // padding-bottom: 10px;
-    border-bottom: 1px solid #EDECE9;
-    color: #788081;
-  }
+#time-bar {
+  display: inline-block;
 }
-
+.slot-row {
+  display: block;
+  height: 40px;
+}
+.slot {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  border-left: 1px dotted #EDECE9;
+  border-right: 1px dotted lighten(#EDECE9, 20%);
+  border-bottom: 1px solid #EDECE9;
+}
+.time-slot div {
+  padding-left: 10px;
+  padding-top: 30px;
+  // padding-bottom: 10px;
+  border-bottom: 1px solid #EDECE9;
+  color: #788081;
+}
 .interval-bar {
   width: 1100px;
   border: 1px solid #EDECE9;
@@ -129,22 +117,21 @@ ul {
   white-space: nowrap;
   overflow: scroll;
   position: relative;
-  .spacer {
-    display: inline-block;
-    width: 120px;
-  }
-  #interval {
-    display: inline-block;
-    position: relative;
-    div {
-      display: inline-block;
-      // border: 1px solid red;
-      width: 100px;
-      // height: 250px;
-    }
-  }
 }
-
+.spacer {
+  display: inline-block;
+  width: 120px;
+}
+#interval {
+  display: inline-block;
+  position: relative;
+}
+#interval div {
+  display: inline-block;
+  // border: 1px solid red;
+  width: 100px;
+  // height: 250px;
+}
 .controls {
   width: 1100px;
   border: 1px solid #EDECE9;
