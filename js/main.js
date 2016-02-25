@@ -1,72 +1,38 @@
 import $ from 'jquery';
-import _ from 'underscore';
-import moment from 'moment';
+import angular from 'angular';
 
-// var startTS = new Date();
-// console.log(startTS);
+import './app-core/index';
+import './app-content/index';
 
+angular
+  .module('app', ['app.core', 'app.content'])
+;
 
+var json = require('./data.json');
 
-// Asset Constructor
-function Asset(id, location, make, totalTime) {
-  this.id = id;
-  this.location = location;
-  this.make = make + ' ' + id;
-  // this.time = time + ' hrs';
-  this.totalTime = totalTime;
-}
+var counts = [];
 
-// Interval Constructor
-function Interval(time) {
-  this.time = time;
+var intervals = [];
+
+for (var i = 0; i < json.data.length; i++) {
+  var count = json.data[i];
+  counts.push(count);
+  var interval = json.header.interval_seconds * i;
+  intervals.push(interval);
 }
 
 var assets = [];
 
-// var intervals = [];
+for (var i = 0; i < json.header.assets.length; i++) {
+  var asset = json.header.assets[i];
+  assets.push(asset);
+}
 
-// CONTROLS
-
-// Create Assets
-
-var num = 3;
-
-var createAssets = function() {
-  for (var i = 0; i < num; i++) {
-    var id = Math.floor(Math.random() * 100);
-    var locations = ["Atlanta", "Decatur", "Macon", "Chicago", "New York", "Seatle"];
-    var location = locations[Math.floor(Math.random() * locations.length)];
-    var makes = ["Honda", "Chevy", "Ford", "BMW", "Mercedes", "Porsche"];
-    var make = makes[Math.floor(Math.random() * makes.length)];
-    var time = Math.floor(Math.random() * 5 + 1);
-
-    // Total Time determined by length of interval
-    var totalTime = intervals.length;
-
-    var asset = new Asset(id, location, make, totalTime);
-
-    assets.push(asset);
-  }
-};
-
-// Create time slots for all intervals
-// var createIntervals = function() {
-//   for (var i = 0; i < 21; i++) {
-//     var time = i;
-
-//     var interval = new Interval(time);
-
-//     intervals.push(interval);
-//   }
-// };
-
-// createIntervals();
-
-createAssets();
+console.log(json.header.interval_seconds);
 
 // Append assets to DOM
 $.each(assets, function(key, val) {
-  var $li = $("<li>"+val.make+"</li>");
+  var $li = $("<li>"+val+"</li>");
   $('#asset-list').append($li).addClass('asset');
 
   var $row = $('<div class="slot-row"></div>');
@@ -80,21 +46,21 @@ for (var s = 0; s < intervals.length; s++) {
 
 // Append time intervals to DOM
 $.each(intervals, function(key, val) {
-  var $div = $("<div>"+val.time+"</div>");
+  var $div = $("<div>"+val+"</div>");
   $('#interval').append($div);
 });
 
-console.log(assets);
+// console.log(assets);
 
-console.log(intervals);
+// console.log(intervals);
 
-// Synch scrolling
-$('.interval-bar').on('scroll', function () {
-  $('.replay-bar').scrollLeft($(this).scrollLeft());
-});
-$('.replay-bar').on('scroll', function () {
-  $('.interval-bar').scrollLeft($(this).scrollLeft());
-});
+// // Synch scrolling
+// $('.interval-bar').on('scroll', function () {
+//   $('.replay-bar').scrollLeft($(this).scrollLeft());
+// });
+// $('.replay-bar').on('scroll', function () {
+//   $('.interval-bar').scrollLeft($(this).scrollLeft());
+// });
 
 
 
